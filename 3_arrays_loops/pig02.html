@@ -43,7 +43,7 @@
                 //The first and second letters are constonents
                 else if (constonents.includes(secondLetter)) 
                 	{
-                	var secondLetter = word.slice(1,2);
+                	var secondLetter = word.slice(0,2);
                 	if (constonents.includes(secondLetter))
                 	{
                     	word = word.substr(1) + word[0] + "ay ";
