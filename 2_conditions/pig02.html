@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Pig Latin Assignment</title>
+    </head>
+    <body>
+    
+    <script>
+        var sentence = prompt("enter a phrase")
+        
+        var words = sentence.split(" ")
+        
+        var vowels = "aeiou";
+       
+            
+        // loop through an array called 'words'
+        // 'index' is the zero-based position of each word in the array
+        for (var index in words) {
+            var word = words[index];
+            var firstLetter=word.slice(0,1);
+            var secondLetter = word.slice(1,2);
+            //document.write(firstLetter);
+            
+            //the first letter is a vowel
+            if (vowels.includes(firstLetter)) 
+            {
+                word = word + "way " 
+                document.write(word);
+            } 
+            
+            //The first letter is a constonent
+            else if (vowels.includes(secondLetter))
+                {
+                    word = word.substr(1) + word[0] + "ay ";
+                    document.write(word);
+                }    
+                  
+                //The first and second letters are constonents
+                else { 
+                	word = word.substr(2) + firstLetter + secondLetter + "ay ";
+                    	document.write(word);
+                	}    
+            	}
+            
+
+    </script>
+
+    
+    </body>
+</html>
