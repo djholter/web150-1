@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <style>
+      * {
+          font-family: arial, verdana, sans-serif;
+      }    
+      #wrapper {
+          height: 250px;
+          width: 350px;
+          padding: 2px 20px 25px 20px;
+          margin: 20px 0 0 20px;
+          background-color: #9999ff;
+          border: 2px solid #000066;
+      }
+      form {
+          height: 145px;
+          width: 300px;
+          padding: 15px;
+          margin: 0px;
+          background-color: #ccff99;
+          overflow: hidden;
+      }
+      h1 {
+          text-decoration-color: #1f1f2e;
+      }
+  </style>
+      
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>     
+</head>
+    
+<body>
+<div id="wrapper">
+<h1>Functions & validation</h1>
+
+<form id="form1" action="#" onsubmit="return validateForm(this);">
+  First name: <input type="text" name="firstname"><br><br>
+  Last name: <input type="text" name="lastname"><br><br>
+  Password: <input type="text" name="password"><br><br>
+
+  <button >Check</button>
+</form>
+
+<div id="message"></div>
+
+<script>
+function validateForm(myForm) {
+  var firstname = myForm.firstname.value;
+  var lastname = myForm.lastname.value;
+  var password = myForm.password.value;
+    
+  if (firstname.length==0) {
+      $("#message").html("Please fill in first name."); 
+        }
+    else if (lastname.length==0) {
+      $("#message").html("Please fill in last name.");
+        }
+        else if (!validpassword(password)) {
+            $("#message").html("Please enter 8 characters, one uppercase.");
+              }
+        else {
+            $("#message").html("Success");
+        }
+    return false; // prevent page reload
+}  
+
+function validpassword(password) {
+  
+    if (password.length < 8) {
+        return false;
+        }else if (password.toUpperCase()==password) {
+            return false;
+            } else if (password.toLowerCase()==password) {
+                return false;
+                } else {
+                    return true;
+                    }
+}       
+ 
+</script>
+</div>
+</body>
+</html> 
