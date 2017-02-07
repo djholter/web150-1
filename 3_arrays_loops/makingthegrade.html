@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Making The Grade</title>
+    <style>
+        * {
+            font-family: Arial, verdana, sans-serif;
+            line-height: 1.5em;
+        }    
+        li {
+            list-style: square;
+        }
+        
+    </style>
+    </head>
+    <body>
+        
+    <script>
+
+        //Initial string
+        var grades = "jim|25, sue|32, mary|34, ann|22, ted|28, frank|15, lisa|19, mike|30, ahn|26, vishaya|27";
+        
+        //Split string into Array
+        grades = grades.split(", ");
+        
+        //Sort students alphabetically
+        grades.sort();
+        var sum = 0;
+        var maxScore = 0;
+        var minScore = 100;
+        
+        //For loop to Splice Student and Grade and Join on pipe--replacing pipe
+        //set up For loop insert " - "
+        for (i=0; i <grades.length; i++) { 
+            grades[i]=grades[i].charAt(0).toUpperCase() + grades[i].substr(1);
+            var currentStudent=grades[i].split("|");  //Starts the replacement of the pipe
+            var score=parseInt(currentStudent[1]); //works with integers after the pipe
+            sum += score;
+            
+            if (score > maxScore) {
+            maxScore = score
+          }
+
+          if (score < minScore) {
+            minScore = score;
+          }
+            document.write('<li>' + currentStudent[0] + " - " + score + "<br/>")
+        }
+
+        document.write("<br/> Number of Students: " + grades.length + "<br/>MinScore: " + minScore + "<br/>MaxScore: " + maxScore + "<br/>Average: " + sum/grades.length);
+
+    </script>
+
+    </body>
+</html>
